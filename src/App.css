@@ -1,0 +1,22 @@
+.logo {
+  padding: 1.5em !important;
+}
+
+span.logos > a > span {
+  overflow: inherit !important;
+}
+
+.logo.sob:hover {
+  filter: drop-shadow(0 0 2em #36373f);
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .logo.sob:hover {
+    filter: drop-shadow(0 0 2em #ffff);
+  }
+}
+
+.invalid {
+  color: red;
+}
