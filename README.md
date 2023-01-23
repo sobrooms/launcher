@@ -1,4 +1,4 @@
 # TODO
-[*] Add install function
-[*] Add start function
-[ ] Add update function
+- [x] Add install function
+- [x] Add start function
+- [ ] Add update function
