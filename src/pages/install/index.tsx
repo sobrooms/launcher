@@ -5,6 +5,7 @@ import { invoke } from "@tauri-apps/api/tauri";
 import sob_logo from '../../assets/icon.png';
 import { toast, ToastContainer } from 'react-toastify';
 import Link from "next/link";
+import Head from "next/head";
 const Inst: NextPage = () => {
     async function install() {
         /* toast.info('Downloading SobseedPS jar...', {
@@ -16,9 +17,7 @@ const Inst: NextPage = () => {
             progress: undefined,
             theme: 'dark'
         }) */
-        const IrP = new Promise(async function () {
-            await invoke("install");
-        });
+        const IrP = () => new Promise(async resolve => await invoke("install").then(a => setTimeout(resolve, 1)));
         toast.promise(IrP, {
             pending: 'Downloading jar file...',
             success: 'Successfully downloaded SobseedPS jar',
@@ -35,20 +34,33 @@ const Inst: NextPage = () => {
             progress: undefined,
             theme: 'dark'
         }) */
-        const IrP = new Promise(async function () {
-            await invoke("install_res")
-        });
+        const IrP = () => new Promise(async resolve => await invoke("install_res").then(a => setTimeout(resolve, 1)));
         toast.promise(
             IrP,
             {
-              pending: 'Downloading resources...',
-              success: 'Successfully downloaded resources',
-              error: 'Installation has been canceled or encountered an error. '
+                pending: 'Downloading resources...',
+                success: 'Successfully downloaded resources',
+                error: 'Installation has been canceled or encountered an error. '
+            }
+        );
+    };
+    async function test() {
+
+        const IrP = () => new Promise(async resolve => await invoke("install").then(a => setTimeout(resolve, 1)));
+        toast.promise(
+            IrP,
+            {
+                pending: 'Test promise pending..',
+                success: 'Test promise success',
+                error: 'Promise rejected'
             }
         );
     }
     return (
         <div className="container">
+            <Head>
+                <link rel="icon" href="/icon.png" />
+            </Head>
             <h1>Download SobseedPS</h1>
             <div className="row">
                 <span className="logos">
@@ -72,6 +84,11 @@ const Inst: NextPage = () => {
                     <button type="button" className="btn" onClick={() => install_res()}>
                         Download resources
                     </button>
+                    {process.env.NODE_ENV === "development" && (
+                        <button type="button" className="btn" onClick={() => test()}>
+                            Test promise item a
+                        </button>
+                    )}
                 </div>
             </div>
             <br /><br />

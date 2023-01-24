@@ -3,23 +3,26 @@ import { invoke } from "@tauri-apps/api/tauri";
 import Image from "next/image";
 import sob_logo from '../assets/icon.png';
 import Link from 'next/link';
+import Head from 'next/head'
 function startPage() {
     async function start() {
-        await invoke("start").then(function () {
-            toast.success('Started SobseedPS', {
-                position: "bottom-left",
-                autoClose: 10000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: false,
-                draggable: false,
-                progress: undefined,
-                theme: "dark",
-            });
+        toast.success('Started SobseedPS', {
+            position: "bottom-left",
+            autoClose: 10000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "dark",
         })
+        return invoke("start");
     }
     return (
         <div className="container">
+            <Head>
+                <link rel="icon" href="/icon.png" />
+            </Head>
             <h1>SobseedPS</h1>
 
             <div className="row">

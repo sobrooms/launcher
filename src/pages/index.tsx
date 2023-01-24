@@ -2,14 +2,20 @@ import { useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
 import Image from "next/image";
 import sob_logo from '../assets/icon.png';
-import Link from 'next/link'
+import Link from 'next/link';
+import Head from "next/head";
 function index() {
   return (
     <div className="container">
+      <Head>
+        <link rel="icon" href="/icon.png" />
+      </Head>
       <h1>SobseedPS - Launcher</h1>
-
+      {process.env.NODE_ENV === "development" && (
+        "development build"
+      )}
       <div className="row">
-      <span className="logos">
+        <span className="logos">
           <a href="https://github.com/sobrooms/sobseed" target="_blank">
             <Image
               width={144}

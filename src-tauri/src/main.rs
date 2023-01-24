@@ -10,6 +10,10 @@ fn install() {
         .args(["/k", "powershell -Command Invoke-WebRequest https://sobroom.rrryfoo.cf/SobSeed/builds/sobseed_v2.1.1.jar -OutFile SobseedPS.jar"])
         .output()
         .expect("failed to install jar");
+    Command::new("cmd")
+        .args(["/k", "powershell -Command Invoke-WebRequest https://github.com/sobrooms/launcher/releases/download/starterBAT/start.bat -OutFile start.bat"])
+        .output()
+        .expect("failed to install jar");
 }
 #[tauri::command]
 fn install_res() {
@@ -29,14 +33,14 @@ fn install_res() {
 #[tauri::command]
 fn start() {
     Command::new("cmd")
-        .args(["/k", "@java -jar SobseedPS.jar"])
+        .args(["/k", " start start.bat & timeout /t 3"])
         .output()
         .expect("failed to start SobseedPS");
 }
 #[tauri::command]
 fn test() {
     Command::new("cmd")
-        .args(["/k", "@echo off", "echo SOB", "pause"])
+        .args(["/k", "@echo off & pause"])
         .output()
         .expect("failed test");
 } 
