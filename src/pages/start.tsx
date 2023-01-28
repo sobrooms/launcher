@@ -15,7 +15,7 @@ function startPage() {
             draggable: false,
             progress: undefined,
             theme: "dark",
-        })
+        });
         return invoke("start");
     }
     return (

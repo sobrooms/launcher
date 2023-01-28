@@ -20,7 +20,7 @@ const Inst: NextPage = () => {
         const IrP = () => new Promise(async resolve => await invoke("install").then(a => setTimeout(resolve, 1)));
         toast.promise(IrP, {
             pending: 'Downloading jar file...',
-            success: 'Successfully downloaded SobseedPS jar',
+            success: 'Successfully downloaded SobseedPS latest jar',
             error: 'Installation has been canceled or encountered an error.'
         });
     }

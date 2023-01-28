@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "SobseedPS Launcher",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "tauri": {
     "allowlist": {
@@ -29,7 +29,7 @@
       "icon": [
         "icons/icon.ico"
       ],
-      "identifier": "com.sobrooms.sobseedps-launcher",
+      "identifier": "SobseedPS",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -47,11 +47,11 @@
         "timestampUrl": ""
       }
     },
-    "security": {
-      "csp": null
-    },
     "updater": {
       "active": false
+    },
+    "security": {
+      "csp": null
     },
     "windows": [
       {
@@ -59,7 +59,7 @@
         "height": 600,
         "resizable": true,
         "title": "SobseedPS Launcher",
-        "width": 800
+        "width": 1120
       }
     ]
   }
