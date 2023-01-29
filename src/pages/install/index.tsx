@@ -17,7 +17,7 @@ const Inst: NextPage = () => {
             progress: undefined,
             theme: 'dark'
         }) */
-        const IrP = () => new Promise(async resolve => await invoke("install").then(a => setTimeout(resolve, 1)));
+        const IrP = () => new Promise(async resolve => await invoke("jar").then(a => setTimeout(resolve, 1)));
         toast.promise(IrP, {
             pending: 'Downloading jar file...',
             success: 'Successfully downloaded SobseedPS latest jar',
@@ -34,7 +34,7 @@ const Inst: NextPage = () => {
             progress: undefined,
             theme: 'dark'
         }) */
-        const IrP = () => new Promise(async resolve => await invoke("install_res").then(a => setTimeout(resolve, 1)));
+        const IrP = () => new Promise(async resolve => await invoke("res").then(a => setTimeout(resolve, 1)));
         toast.promise(
             IrP,
             {
